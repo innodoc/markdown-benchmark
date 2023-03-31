@@ -1,12 +1,19 @@
 import fs from "fs/promises";
+import path from "path";
+
 import Benchmark from "benchmark";
 import makeParsers from "./parsers.js";
+
+function htmlDoc(html) {
+  return `<html><head></head><body>${html}</body></html>`;
+}
 
 async function runBenchmark() {
   const markdown = (await fs.readFile("markdown.md")).toString();
   const parsers = await makeParsers();
   const names = Object.keys(parsers);
   const results = Object.fromEntries(names.map((name) => [name, {}]));
+  const htmlResults = {};
 
   await new Promise((resolve) => {
     const benchmark = new Benchmark.Suite("Markdown parsers")
@@ -19,11 +26,22 @@ async function runBenchmark() {
       .on("complete", resolve);
 
     for (const name of names) {
-      benchmark.add(name, () => parsers[name](markdown), { maxTime: 10 });
+      benchmark.add(
+        name,
+        () => {
+          htmlResults[name] = parsers[name](markdown);
+        },
+        { maxTime: 10 }
+      );
     }
 
     benchmark.run();
   });
+
+  // Save HTML result
+  for (const [name, html] of Object.entries(htmlResults)) {
+    await fs.writeFile(path.join("html", `${name}.html`), htmlDoc(html));
+  }
 
   // Sort by ops/sec
   const sortedResults = Object.fromEntries(
