@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "benchmark": "node benchmark.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,9 @@
   "dependencies": {
     "@markdoc/markdoc": "^0.2.2",
     "benchmark": "^2.1.4",
+    "commonmark": "^0.30.0",
     "markdown-it": "^13.0.1",
+    "markdown-wasm": "^1.2.0",
     "marked": "^4.3.0",
     "micromark": "^3.1.0",
     "micromark-extension-gfm": "^2.0.1",
@@ -22,6 +24,7 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "showdown": "^2.1.0",
     "unified": "^10.1.2"
   }
 }
