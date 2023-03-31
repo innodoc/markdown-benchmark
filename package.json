@@ -1,0 +1,27 @@
+{
+  "name": "markdown-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@markdoc/markdoc": "^0.2.2",
+    "benchmark": "^2.1.4",
+    "markdown-it": "^13.0.1",
+    "marked": "^4.3.0",
+    "micromark": "^3.1.0",
+    "micromark-extension-gfm": "^2.0.1",
+    "microtime": "^3.1.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2"
+  }
+}
