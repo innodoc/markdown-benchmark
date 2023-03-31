@@ -4,6 +4,7 @@ import { gfm, gfmHtml } from "micromark-extension-gfm";
 import Markdoc from "@markdoc/markdoc";
 import MarkdownIt from "markdown-it";
 import * as MarkdownWasm from "markdown-wasm";
+import { Remarkable } from "remarkable";
 import { unified } from "unified";
 import remarkParsePlugin from "remark-parse";
 import remarkGfm from "remark-gfm";
@@ -52,6 +53,10 @@ async function parsers() {
     .freeze();
   const remarkParse = (markdown) => remark.processSync(markdown).toString();
 
+  // remarkable
+  const remarkable = new Remarkable();
+  const remarkableParse = (markdown) => remarkable.render(markdown);
+
   // showdown
   showdown.setFlavor("github");
   const showdownParser = new showdown.Converter();
@@ -65,6 +70,7 @@ async function parsers() {
     marked,
     micromark: micromarkParse,
     remark: remarkParse,
+    remarkable: remarkableParse,
     showdown: showdownParse,
   };
 }

@@ -24,6 +24,7 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "remarkable": "^2.0.1",
     "showdown": "^2.1.0",
     "unified": "^10.1.2"
   }
