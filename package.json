@@ -1,15 +1,16 @@
 {
   "name": "markdown-benchmark",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Benchmark different Markdown parsers in Node.js.",
   "type": "module",
+  "private": true,
   "scripts": {
     "benchmark": "node benchmark.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "markdown",
+    "benchmark"
+  ],
   "dependencies": {
     "@markdoc/markdoc": "^0.2.2",
     "benchmark": "^2.1.4",
