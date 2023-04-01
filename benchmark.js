@@ -46,7 +46,7 @@ async function runBenchmark() {
   // Sort by ops/sec
   const sortedResults = Object.fromEntries(
     Object.entries(results)
-      .sort((a, b) => a[1].benchmark.hz - b[1].benchmark.hz)
+      .sort((a, b) => b[1].benchmark.hz - a[1].benchmark.hz)
       .map(([name, { benchmark }]) => [
         name,
         {
